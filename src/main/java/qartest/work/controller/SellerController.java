@@ -25,7 +25,7 @@ public class SellerController {
         return new ResponseEntity<>(service.getById(id), HttpStatus.OK);
     }
 
-    @GetMapping("getAll")
+    @GetMapping("/getAll")
     public ResponseEntity<List<SellerResponse>> getAll(){
         return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
 

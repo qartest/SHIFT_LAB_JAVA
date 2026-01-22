@@ -2,7 +2,7 @@ server:
   port: 8080
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/db_crm
+    url: jdbc:postgresql://localhost:5432/test_db
     username: postgres
     password: postgres
   jpa:

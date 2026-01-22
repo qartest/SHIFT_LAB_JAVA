@@ -15,6 +15,7 @@ import qartest.work.error.exception.NotFound;
 import qartest.work.error.exception.SaveProblem;
 import qartest.work.model.Seller;
 import qartest.work.repository.SellerRepository;
+import qartest.work.repository.TransactionRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -25,6 +26,7 @@ import java.util.stream.Collectors;
 public class SellerService {
     private final ModelMapper mapper;
     private final SellerRepository sellerRepository;
+    private final TransactionRepository transactionRepository;
 
     @Transactional
     public SellerResponse getById(Long id){
@@ -66,6 +68,7 @@ public class SellerService {
     @Transactional
     public SellerResponse delete(Long id){
         SellerResponse sellerResponse = mapper.toSellerResponse(sellerRepository.findById(id).orElseThrow(() -> new NotFound("Can not found seller with id: " + id.toString())));
+        transactionRepository.deleteBySellerId(id);
         sellerRepository.deleteById(id);
         return sellerResponse;
     }

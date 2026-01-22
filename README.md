@@ -46,29 +46,37 @@
 
 ## Примеры использования API  
 Запрос:
+````
 curl -X GET "http://localhost:8080/seller/get/1" -H "Accept: application/json"
+````
 Ответ: 
+````
 {
     "id": 1,
     "name": "Иван Иванов",
     "contactInfo": "+79991234567",
     "registrationDate": "2026-01-22T12:34:56"
 }
+````
 
 Запрос:
+````
 curl -X POST "http://localhost:8080/seller/create" \
     -H "Content-Type: application/json" \
     -d '{
     "name": "Сергей Сергеев",
     "contactInfo": "+79990001122"
 }'
+````
 Ответ:
+````
 {
     "id": 3,
     "name": "Сергей Сергеев",
     "contactInfo": "+79990001122",
     "registrationDate": "2026-01-22T14:00:00"
 }
+````
 
 ## Инструкция по сборке
 
